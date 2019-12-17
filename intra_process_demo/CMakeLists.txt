@@ -26,6 +26,12 @@ ament_export_include_directories(include)
 ## Demos
 ##
 
+add_executable(anytype_pipeline
+  src/anytype_pipeline/anytype_pipeline.cpp)
+ament_target_dependencies(anytype_pipeline
+  "rclcpp"
+  "std_msgs")
+
 # Simple example of using unique_ptr to minimize copies.
 add_executable(two_node_pipeline
   src/two_node_pipeline/two_node_pipeline.cpp)
@@ -81,6 +87,7 @@ ament_target_dependencies(image_view_node
   "OpenCV")
 
 install(TARGETS
+  anytype_pipeline
   two_node_pipeline
   cyclic_pipeline
   image_pipeline_all_in_one
